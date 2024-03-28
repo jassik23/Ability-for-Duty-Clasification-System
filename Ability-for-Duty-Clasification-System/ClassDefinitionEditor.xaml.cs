@@ -8,4 +8,9 @@ public partial class ClassDefinitionEditor : Window
     {
         InitializeComponent();
     }
+
+    private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
 }

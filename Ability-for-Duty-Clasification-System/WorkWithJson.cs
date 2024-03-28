@@ -8,14 +8,15 @@ namespace Ability_for_Duty_Clasification_System;
 
 public abstract class WorkWithJson
 {
-    public static JObject GetClassesFromJson(string jsonFileName)
+    public static JObject? GetClassesFromJson(string jsonFileName)
     {
+        
         string jsonString = File.ReadAllText(jsonFileName);
-        JObject jObject = JObject.Parse(jsonString);
+        JObject? jObject = JObject.Parse(jsonString);
         return jObject;
     }
 
-    public static void SetClassesToJson(JObject jObject, string jsonFileName)
+    public static void SetClassesToJson(JObject? jObject, string jsonFileName)
     {
         File.WriteAllText(@jsonFileName, jObject.ToString());
     }
