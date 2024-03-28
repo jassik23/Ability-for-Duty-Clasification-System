@@ -24,11 +24,11 @@
         <TextBlock Grid.Row="0" FontSize="16" Margin="10 30 0 0"
                    TextAlignment="Center" VerticalAlignment="Center">Подходящие категории:</TextBlock>
         <TextBox Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="40"
-                IsReadOnly="True"></TextBox>
+                IsReadOnly="True" x:Name="SuitableCategoriesTextBlock"></TextBox>
         <TextBlock Grid.Row="2" FontSize="16" Margin="10 30 0 0"
                    TextAlignment="Center" VerticalAlignment="Center">Объяснение:</TextBlock>
         <TextBox Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="150"
-                 IsReadOnly="True"></TextBox>
+                 IsReadOnly="True" x:Name="ExplanationTextBox"></TextBox>
         <Button Grid.Row="4" Margin="10" Height="30" HorizontalAlignment="Center" FontSize="20" Content="Главное меню"
                 Click="Menu_OnClick"/>
     </Grid>
