@@ -17,7 +17,7 @@ public partial class BaseOfKnowlengeEditor : Window
 
     private void EditMarks_OnClick(object sender, RoutedEventArgs e)
     {
-        CharacteristicOfClassEditor newWindow = new CharacteristicOfClassEditor();
+        CharacteristicOfClassEditor newWindow = new CharacteristicOfClassEditor(null);
         newWindow.Show();
         this.Close();
     }

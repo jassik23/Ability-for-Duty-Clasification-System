@@ -33,11 +33,6 @@ public partial class ResultOfClassificateWindow : Window
         string badResults = "";
         foreach (var category in classificationJson!)
         {
-            if (category.Key == "Все значения") 
-            {
-                continue;
-            }
-
             bool flag = true;
             foreach (var attribute in category.Value!)
             {

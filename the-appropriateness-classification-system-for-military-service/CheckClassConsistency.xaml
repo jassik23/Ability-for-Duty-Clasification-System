@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
         mc:Ignorable="d"
-        Title="CheckClassConsistency" Height="450" Width="800"
+        Title="CheckClassConsistency" Height="450" Width="1000"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
@@ -29,20 +29,22 @@
                    Margin="20 0" VerticalAlignment="Bottom" TextAlignment="Justify"
                    FontSize="16">Проверка классов
         </TextBlock>
-        <DataGrid Name="dataGridLeft" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2"
+        <DataGrid Name="dataGridCharacter" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2"
                   Grid.Column="0" Margin="20"
                   FontSize="16">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Признак" Binding="{Binding Column1}" />
-                <DataGridTextColumn Header="Результат проверок" Binding="{Binding Column2}" />
+                <DataGridTextColumn Header="Признак" Binding="{Binding Character}" 
+                                    Width="150"/>
+                <DataGridTextColumn Header="Результат проверок" Binding="{Binding ResultOfCheck}" />
+                <DataGridTextColumn Header="Сломанные классы" Binding="{Binding BreakedClasses}" />
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="dataGridRight" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2"
+        <DataGrid Name="dataGridClass" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2"
                   Grid.Column="1" Margin="20"
                   FontSize="16">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Класс" Binding="{Binding Column1}" />
-                <DataGridTextColumn Header="Результат проверок" Binding="{Binding Column2}" />
+                <DataGridTextColumn Header="Класс" Binding="{Binding CheckClass}" />
+                <DataGridTextColumn Header="Результат проверок" Binding="{Binding ResultOfCheck}" />
             </DataGrid.Columns>
         </DataGrid>
         

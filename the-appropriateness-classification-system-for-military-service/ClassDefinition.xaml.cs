@@ -27,7 +27,7 @@ public partial class ClassDefinition : Window
     {
         InitializeComponent();
         List<Data> data = new List<Data>();
-        var allValues = App.GetDataKnowledge()?["Все значения"];
+        var allValues = App.GetDataTemplateKnowledge();
         foreach (var variable in App.GetDataTypes()!)
         {
             string selectorType;
@@ -93,12 +93,12 @@ public partial class ClassDefinition : Window
     private bool CheckDigitFields(JObject data)
     {
         var dataTypes = App.GetDataTypes();
-        var allDataKnowledge = App.GetDataKnowledge();
+        var allDataKnowledge = App.GetDataTemplateKnowledge();
         foreach (var typeField in dataTypes)
         {
             if (typeField.Value!.Value<string>() == "Интервальный")
             {
-                string type = allDataKnowledge?.GetValue("Все значения").Value<JObject>().GetValue(typeField.Key)!.Value<string>();
+                string type = allDataKnowledge?.GetValue(typeField.Key)!.Value<string>()!;
                 int startIndex = int.Parse(type.Substring(type.IndexOf('[') + 1, type.IndexOf("..", StringComparison.Ordinal) - type.IndexOf('[') - 1));
                 int endIndex = int.Parse(type.Substring(type.IndexOf("..", StringComparison.Ordinal) + 2, type.IndexOf(']') - type.IndexOf("..", StringComparison.Ordinal) - 2));
                 char letter = type[0];
