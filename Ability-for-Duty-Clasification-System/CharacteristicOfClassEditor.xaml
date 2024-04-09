@@ -25,16 +25,16 @@
         </Menu>
         <WrapPanel Grid.Row="1" Grid.Column="0">
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 10" FontSize="16">Класс:</TextBlock>
-            <ComboBox  Margin="10" FontSize="14" Width="120"></ComboBox>
+            <ComboBox  Margin="10" FontSize="14" Width="120" x:Name="ClassComboBox" SelectionChanged="ClassComboBox_OnSelected"></ComboBox>
         </WrapPanel>
         <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" FontSize="20" Margin="10">Признаки выбранного класса</TextBlock>
-        <DataGrid Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="3" Grid.ColumnSpan="3"
-                  Grid.Column="0" Margin="10"
+        <DataGrid Name="dataGridData" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="3" Grid.ColumnSpan="3"
+                  Grid.Column="0" Margin="10" IsReadOnly="True"
                   FontSize="16">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название" Binding="{Binding Column1}" />
-                <DataGridTextColumn Header="Тип" Binding="{Binding Column2}" />
-                <DataGridTextColumn  Header="Значение" Binding="{Binding Column3}" />
+                <DataGridTextColumn Header="Название" Binding="{Binding CharacteristicName}" />
+                <DataGridTextColumn Header="Тип" Binding="{Binding CharacteristicType}" />
+                <DataGridTextColumn  Header="Значение" Binding="{Binding CharacteristicValue}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Row="4" Grid.Column="0" Margin="5" FontSize="20" Content="Добавить" Click="ClassDefinitionEditor_OnClick"/>

@@ -3,11 +3,20 @@ using Newtonsoft.Json.Linq;
 
 namespace Ability_for_Duty_Clasification_System;
 
-public partial class ClassAddingAndEditor : Window
+public partial class ClassAddingAndRename : Window
 {
-    public ClassAddingAndEditor()
+    private readonly bool _isEditor = false;
+    private readonly string _classEditingName = "";
+    public ClassAddingAndRename(bool isEditor, string classEditingName)
     {
         InitializeComponent();
+        if (isEditor)
+        {
+            AddClassButton.Content = "Изменить класс";
+            ClassNameTextBox.Text = classEditingName;
+        }
+        this._classEditingName = classEditingName;
+        this._isEditor = isEditor;
     }
     private void Exit_OnClick(object sender, RoutedEventArgs e)
     {
@@ -34,13 +43,20 @@ public partial class ClassAddingAndEditor : Window
                 "Низя", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
-        JObject dataClasses = App.GetDataKnowledge()!;
-        JObject newClass = new JObject();
-        foreach (var templateClass in App.GetDataTemplateKnowledge()!)
+        if (_isEditor)
         {
-            newClass.Add(templateClass.Key, "");
+            App.GetDataKnowledge()!.Add(ClassNameTextBox.Text, App.GetDataKnowledge()!.GetValue(_classEditingName));
+            App.GetDataKnowledge()!.Remove(_classEditingName);
         }
-        dataClasses.Add(ClassNameTextBox.Text, newClass);
+        else
+        {
+            JObject newClass = new JObject();
+            foreach (var templateClass in App.GetDataTemplateKnowledge()!)
+            {
+                newClass.Add(templateClass.Key, "");
+            }
+            App.GetDataKnowledge()!.Add(ClassNameTextBox.Text, newClass);
+        }
         ClassEditor window = new ClassEditor();
         window.Show();
         this.Close();

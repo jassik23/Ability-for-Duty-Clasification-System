@@ -41,11 +41,6 @@ public partial class CheckClassConsistency : Window
         Dictionary<string, string> resultOfConsistencyForClassDict = new Dictionary<string, string>();
         foreach (var dataClass in App.GetDataKnowledge()!)
         {
-            if (dataClass.Key == "Все значения")
-            {
-                continue;
-            }
-
             bool isRight = true;
             foreach (var dataClassValue in ((JObject)dataClass.Value!)!)
             {

@@ -13,7 +13,9 @@ public partial class App : Application
 {
     private static JObject? DataTypes { get; set; }
     private static JObject? DataKnowledge { get; set; }
+    private static JObject? DataTemplateKnowledge { get; set; }
     private readonly string _dataKnowledgeName = "dataKnowledge.json";
+    private readonly string _dataTemplateKnowledgeName = "dataTemplateKnowledge.json";
     private readonly string _dataTypesName = "dataTypes.json";
 
     public static JObject? GetDataTypes()
@@ -23,6 +25,11 @@ public partial class App : Application
     public static JObject? GetDataKnowledge()
     {
         return DataKnowledge;
+    }
+
+    public static JObject? GetDataTemplateKnowledge()
+    {
+        return DataTemplateKnowledge;
     }
     public static void SetDataTypes(JObject? newDataTypes)
     {
@@ -37,6 +44,7 @@ public partial class App : Application
     {
         WorkWithJson.SetClassesToJson(DataKnowledge, _dataKnowledgeName);
         WorkWithJson.SetClassesToJson(DataTypes, _dataTypesName);
+        WorkWithJson.SetClassesToJson(DataTemplateKnowledge, _dataTemplateKnowledgeName);
         System.Console.WriteLine("Exit");
     }
 
@@ -44,6 +52,6 @@ public partial class App : Application
     {
         DataKnowledge = WorkWithJson.GetClassesFromJson(_dataKnowledgeName);
         DataTypes = WorkWithJson.GetClassesFromJson(_dataTypesName);
-        
+        DataTemplateKnowledge = WorkWithJson.GetClassesFromJson(_dataTemplateKnowledgeName);
     }
 }

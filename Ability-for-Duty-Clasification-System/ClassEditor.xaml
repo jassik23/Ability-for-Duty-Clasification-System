@@ -30,16 +30,16 @@
             FontSize="20"
             VerticalAlignment="Center"
                    > Ниже представлены все категории, описанные в системе</TextBlock>
-        <ListBox Grid.Row="1" Grid.ColumnSpan="4" Margin="30 10" x:Name="CategoriesListBox">
+        <ListBox Grid.Row="1" Grid.ColumnSpan="4" Margin="30 10" x:Name="CategoriesListBox" FontSize="16">
             
         </ListBox>
         <WrapPanel Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Margin="5" FontSize="20" Content="Подробное описание"/>
+            <Button Margin="5" FontSize="20" Content="Подробное описание" x:Name="ClassDescriptionButton" Click="ClassDescriptionButton_OnClick"/>
             <Button Margin="5" FontSize="20" Content="Добавить" Click="AddClass_OnClick"/>
-            <Button Margin="5" FontSize="20" Content="Удалить"/>
-            <Button Margin="5" FontSize="20" Content="Изменить" Click="EditMarks_OnClick"/>
+            <Button Margin="5" FontSize="20" Content="Удалить" x:Name="DeleteClassButton" Click="DeleteClassButton_OnClick"/>
+            <Button Margin="5" FontSize="20" Content="Изменить название класса" Click="EditClassName_OnClick"/>
         </WrapPanel>
-        <Button Grid.Row="3" Grid.Column="0" Margin="10" Height="30" FontSize="20" Content="Назад"/>
+        <Button Grid.Row="3" Grid.Column="0" Margin="10" Height="30" FontSize="20" Content="Назад" Click="Back_OnClick"/>
         <Button Grid.Row="3" Grid.Column="3" Margin="10" Height="30" FontSize="20" Content="Главное меню" Click="Menu_OnClick"/>
         
     </Grid>
