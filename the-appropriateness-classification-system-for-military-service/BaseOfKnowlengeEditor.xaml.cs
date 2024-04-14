@@ -45,4 +45,11 @@ public partial class BaseOfKnowlengeEditor : Window
         window.Show();
         this.Close();
     }
+
+    private void EditTemplateCharacteristics_OnClick(object sender, RoutedEventArgs e)
+    {
+        TemplateCharacteristicOfClassEditor window = new TemplateCharacteristicOfClassEditor();
+        window.Show();
+        this.Close();
+    }
 }

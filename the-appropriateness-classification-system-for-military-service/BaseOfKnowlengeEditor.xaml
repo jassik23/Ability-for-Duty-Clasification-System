@@ -5,10 +5,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
         mc:Ignorable="d"
-        Title="EditBaseOfKnowlenge" Height="450" Width="800" ResizeMode="NoResize">
+        Title="EditBaseOfKnowlenge" Height="550" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -38,14 +39,18 @@
         <Button Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0"
                 Margin="100 20 100 20"
                 FontSize="20"
-                Click="EditMarks_OnClick">Признаки</Button>
+                Click="EditTemplateCharacteristics_OnClick">Все значения признаков</Button>
         <Button Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0"
+                Margin="100 20 100 20"
+                FontSize="20"
+                Click="EditMarks_OnClick">Признаки определенных классов</Button>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0"
                 Margin="40 20 40 20"
                 FontSize="20" Click="CheckBaseOfKnowlenge_OnClick">Проверить целостность базы знаний</Button>
-        <Button Grid.Row="4"  Grid.Column="0"
+        <Button Grid.Row="5"  Grid.Column="0"
                 Margin="30 20 30 20"
                 FontSize="20" x:Name="BackButton" Click="BackButton_OnClick">Назад</Button>
-        <Button Grid.Row="4"  Grid.Column="1"
+        <Button Grid.Row="5"  Grid.Column="1"
                 Margin="30 20 30 20"
                 FontSize="20" Click="Menu_OnClick">Главное меню</Button>
     </Grid>

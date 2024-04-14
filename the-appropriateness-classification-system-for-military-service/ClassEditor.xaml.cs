@@ -40,7 +40,7 @@ public partial class ClassEditor : Window
 
     private void DeleteClassButton_OnClick(object sender, RoutedEventArgs e)
     {
-        var selectedItem = CheckSelectedItem("Выберите класс для удаления");
+        var selectedItem = CheckSelectedItem("Выберите класс");
         if (selectedItem is not null)
         {
             var answer = MessageBox.Show($"Вы точно хотите удалить класс {selectedItem.ToString()}?", 
@@ -76,7 +76,7 @@ public partial class ClassEditor : Window
 
     private void ClassDescriptionButton_OnClick(object sender, RoutedEventArgs e)
     {
-        var selectedItem = CheckSelectedItem("Выберите класс для удаления");
+        var selectedItem = CheckSelectedItem("Выберите класс");
         if (selectedItem is not null)
         {
             CharacteristicOfClassEditor window = new CharacteristicOfClassEditor(selectedItem.ToString());
