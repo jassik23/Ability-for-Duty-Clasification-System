@@ -6,7 +6,7 @@ namespace Ability_for_Duty_Clasification_System;
 public partial class CharacteristicOfClassEditor : Window
 {
 
-    private class DataGridData
+    public class DataGridData
     {
         public DataGridData(string characteristicName, string characteristicType, string characteristicValue)
         {
@@ -56,19 +56,38 @@ public partial class CharacteristicOfClassEditor : Window
 
     private void ClassDefinitionEditor_OnClick(object sender, RoutedEventArgs e)
     {
-        ClassDefinitionEditor window = new ClassDefinitionEditor();
+        ClassDefinitionTemplateAdding window = new ClassDefinitionTemplateAdding();
         window.Show();
         this.Close();
     }
 
     private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
     {
-        return;
+        var selectedItem = GetSelectedItem();
+        if (selectedItem == null)
+        {
+            return;
+        }
+
+        var onResetAnswer = MessageBox.Show("Вы точно хотите отчистить значения?", "OK?",
+            MessageBoxButton.YesNo, MessageBoxImage.Question);
+        if (onResetAnswer == MessageBoxResult.No)
+        {
+            return;
+        }
+        App.GetDataKnowledge()!.GetValue(ClassComboBox.Text)!.Value<JObject>()!.GetValue(
+            selectedItem.CharacteristicName)!.Replace(new JValue(""));
+        UpdateDataGrid();
     }
 
     private void ChangeButton_OnClick(object sender, RoutedEventArgs e)
     {
-        ClassDefinitionEditor window = new ClassDefinitionEditor();
+        var selectedItem = GetSelectedItem();
+        if (selectedItem == null)
+        {
+            return;
+        }
+        ClassDefinitionEditor window = new ClassDefinitionEditor(selectedItem, ClassComboBox.Text);
         window.Show();
         this.Close();
     }
@@ -81,6 +100,21 @@ public partial class CharacteristicOfClassEditor : Window
     }
 
     private void ClassComboBox_OnSelected(object sender, RoutedEventArgs e)
+    {
+        UpdateDataGrid();
+    }
+    private CharacteristicOfClassEditor.DataGridData? GetSelectedItem()
+    {
+        if (CharacteristicDataGrid.SelectedItem == null)
+        {
+            CheckValueFunctions.CreateErrorMessage("Вы не выбрали элемент");
+            return null;
+        }
+
+        return (CharacteristicOfClassEditor.DataGridData)CharacteristicDataGrid.SelectedItem;
+    }
+
+    private void UpdateDataGrid()
     {
         string selectedState = ClassComboBox.SelectedItem.ToString()!;
         JObject selectedCharacteristics = (JObject)App.GetDataKnowledge()!.GetValue(selectedState)!;
@@ -102,6 +136,7 @@ public partial class CharacteristicOfClassEditor : Window
                 ((string)selectedCharacteristicTypes.GetValue(character.Key))!, characterValue));
         }
 
-        dataGridData.ItemsSource = data;
+        CharacteristicDataGrid.ItemsSource = data;
     }
+    
 }

@@ -62,4 +62,11 @@ public partial class ClassAddingAndRename : Window
         this.Close();
 
     }
+
+    private void BackButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        ClassEditor window = new ClassEditor();
+        window.Show();
+        this.Close();
+    }
 }
