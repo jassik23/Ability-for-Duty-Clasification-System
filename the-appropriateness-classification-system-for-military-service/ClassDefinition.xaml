@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
         mc:Ignorable="d"
-        Title="ClassDefinition" Height="1000" Width="800"
+        Title="Окно ввода признаков для классификации" Height="1000" Width="800"
         ResizeMode="NoResize">
     <Window.Resources>
         <local:DynamicDataTemplateSelector x:Key="DynamicDataTemplateSelector"></local:DynamicDataTemplateSelector>
