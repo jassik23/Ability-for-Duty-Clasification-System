@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
         mc:Ignorable="d"
-        Title="ResultOfClassificateWindow" Height="450" Width="800"
+        Title="Результат классификации" Height="450" Width="800"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>

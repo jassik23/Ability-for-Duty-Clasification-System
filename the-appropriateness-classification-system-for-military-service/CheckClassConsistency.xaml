@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
         mc:Ignorable="d"
-        Title="CheckClassConsistency" Height="450" Width="1000"
+        Title="Окно проверки целостности базы знаний" Height="450" Width="1000"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
