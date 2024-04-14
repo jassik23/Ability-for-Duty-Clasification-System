@@ -1,0 +1,29 @@
+﻿<Window x:Class="Ability_for_Duty_Clasification_System.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" Height="25">
+            <MenuItem Header="Выход" Click="Exit_OnClick"></MenuItem>
+        </Menu>
+        <TextBlock Grid.Row="0" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   FontSize="25" TextAlignment="Center">
+            Интеллектуальная система позволяет <LineBreak/> 
+            определить категорию призывника
+        </TextBlock>
+        <Button Grid.Row="1" Width="400" Height="50" FontSize="20" Click="ClassDefinition_OnClick">Определить категорию призывника</Button>
+        <Button Grid.Row="2" Width="400" Height="50" FontSize="20" Click="EditBase_OnClick">Редактировать базу знаний</Button>
+    </Grid>
+</Window>

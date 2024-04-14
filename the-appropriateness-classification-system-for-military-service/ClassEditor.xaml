@@ -1,0 +1,46 @@
+﻿<Window x:Class="Ability_for_Duty_Clasification_System.ClassEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
+        mc:Ignorable="d"
+        Title="Окно редактирования классов" Height="450" Width="800"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="4" VerticalAlignment="Top" Height="25">
+            <MenuItem Header="Выход" Click="Exit_OnClick"></MenuItem>
+        </Menu>
+        <TextBlock 
+            Grid.ColumnSpan="4" 
+            Margin="30 10 30 0" 
+            TextAlignment="Center"
+            FontSize="20"
+            VerticalAlignment="Center"
+                   > Ниже представлены все категории, описанные в системе</TextBlock>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="4" Margin="30 10" x:Name="CategoriesListBox" FontSize="16">
+            
+        </ListBox>
+        <WrapPanel Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Margin="5" FontSize="20" Content="Подробное описание" x:Name="ClassDescriptionButton" Click="ClassDescriptionButton_OnClick"/>
+            <Button Margin="5" FontSize="20" Content="Добавить" Click="AddClass_OnClick"/>
+            <Button Margin="5" FontSize="20" Content="Удалить" x:Name="DeleteClassButton" Click="DeleteClassButton_OnClick"/>
+            <Button Margin="5" FontSize="20" Content="Изменить название класса" Click="EditClassName_OnClick"/>
+        </WrapPanel>
+        <Button Grid.Row="3" Grid.Column="0" Margin="10" Height="30" FontSize="20" Content="Назад" Click="Back_OnClick"/>
+        <Button Grid.Row="3" Grid.Column="3" Margin="10" Height="30" FontSize="20" Content="Главное меню" Click="Menu_OnClick"/>
+        
+    </Grid>
+</Window>

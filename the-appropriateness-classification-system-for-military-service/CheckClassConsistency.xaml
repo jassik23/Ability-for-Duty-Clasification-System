@@ -1,0 +1,55 @@
+﻿<Window x:Class="Ability_for_Duty_Clasification_System.CheckClassConsistency"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Ability_for_Duty_Clasification_System"
+        mc:Ignorable="d"
+        Title="Окно проверки целостности базы знаний" Height="450" Width="1000"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="4" VerticalAlignment="Top" Height="25">
+            <MenuItem Header="Выход" Click="Exit_OnClick"></MenuItem>
+        </Menu>
+        <TextBlock Grid.Row="1" Grid.Column="0" 
+                   Margin="20 0" VerticalAlignment="Bottom" TextAlignment="Justify"
+                   FontSize="16">Проверка признаков
+        </TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" 
+                   Margin="20 0" VerticalAlignment="Bottom" TextAlignment="Justify"
+                   FontSize="16">Проверка классов
+        </TextBlock>
+        <DataGrid Name="dataGridCharacter" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2"
+                  Grid.Column="0" Margin="20"
+                  FontSize="16">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Признак" Binding="{Binding Character}" 
+                                    Width="150"/>
+                <DataGridTextColumn Header="Результат проверок" Binding="{Binding ResultOfCheck}" />
+                <DataGridTextColumn Header="Сломанные классы" Binding="{Binding BreakedClasses}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="dataGridClass" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2"
+                  Grid.Column="1" Margin="20"
+                  FontSize="16">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Класс" Binding="{Binding CheckClass}" />
+                <DataGridTextColumn Header="Результат проверок" Binding="{Binding ResultOfCheck}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Grid.Row="3" Grid.Column="0" Margin="10" Height="30" FontSize="16" Width="120" HorizontalAlignment="Left" Content="Назад" x:Name="BackButton" Click="BackButton_OnClick"/>
+        <Button Grid.Row="3" Grid.Column="1" Margin="10" Height="30" Width="120" FontSize="16" HorizontalAlignment="Right" Content="Главное меню" Click="Menu_OnClick"/>
+        
+    </Grid>
+</Window>
